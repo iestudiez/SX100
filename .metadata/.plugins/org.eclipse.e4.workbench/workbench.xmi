@@ -68,7 +68,7 @@
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.stackanalyzer.stackanalyzer.view</tags>
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.cyclomaticcomplexity.view</tags>
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.sfrview</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_DdFXRdOfEfGfg-09RlemRw" selectedElement="_DdFXRtOfEfGfg-09RlemRw" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_DdFXRdOfEfGfg-09RlemRw" selectedElement="_DdFXStOfEfGfg-09RlemRw" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_DdFXRtOfEfGfg-09RlemRw" elementId="topLeft" containerData="1555" selectedElement="_DdFXR9OfEfGfg-09RlemRw">
               <tags>active</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_DdFXR9OfEfGfg-09RlemRw" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_DdF_CNOfEfGfg-09RlemRw" closeable="true">
@@ -84,7 +84,7 @@
                 <tags>categoryTag:General</tags>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_DdFXStOfEfGfg-09RlemRw" containerData="8445" selectedElement="_DdFXS9OfEfGfg-09RlemRw">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_DdFXStOfEfGfg-09RlemRw" containerData="8445" selectedElement="_DdFXUdOfEfGfg-09RlemRw">
               <children xsi:type="basic:PartSashContainer" xmi:id="_DdFXS9OfEfGfg-09RlemRw" containerData="7299" selectedElement="_DdFXTNOfEfGfg-09RlemRw" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_DdFXTNOfEfGfg-09RlemRw" elementId="org.eclipse.ui.editorss" containerData="7740" ref="_DdF-_tOfEfGfg-09RlemRw"/>
                 <children xsi:type="basic:PartStack" xmi:id="_DdFXTdOfEfGfg-09RlemRw" elementId="topRight" containerData="2260" selectedElement="_DdFXTtOfEfGfg-09RlemRw">
@@ -121,7 +121,7 @@
                     <tags>categoryTag:General</tags>
                   </children>
                 </children>
-                <children xsi:type="basic:PartStack" xmi:id="_DdFXV9OfEfGfg-09RlemRw" elementId="com.st.stm32cube.ide.mcu.buildanalyzer.viewMStack" containerData="5000" selectedElement="_DdFXW9OfEfGfg-09RlemRw">
+                <children xsi:type="basic:PartStack" xmi:id="_DdFXV9OfEfGfg-09RlemRw" elementId="com.st.stm32cube.ide.mcu.buildanalyzer.viewMStack" containerData="5000" selectedElement="_DdFXWNOfEfGfg-09RlemRw">
                   <tags>C/C++</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_DdFXWNOfEfGfg-09RlemRw" elementId="com.st.stm32cube.ide.mcu.buildanalyzer.view" ref="_DdF_s9OfEfGfg-09RlemRw" closeable="true">
                     <tags>View</tags>
@@ -719,7 +719,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_DdGA3dOfEfGfg-09RlemRw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6b-ZwNO3EfG2edms70IeGA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.svg" tooltip="Print" command="_DdHOGtOfEfGfg-09RlemRw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_rBFcQNO7EfGB46bFLGnJfQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.svg" tooltip="Print" command="_DdHOGtOfEfGfg-09RlemRw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_DdGA79OfEfGfg-09RlemRw" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -727,8 +727,8 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_DdGA8dOfEfGfg-09RlemRw" elementId="org.eclipse.ui.workbench.edit">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6cAO8NO3EfG2edms70IeGA" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.svg" tooltip="Undo" enabled="false" command="_DdHOCNOfEfGfg-09RlemRw"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6cA2ANO3EfG2edms70IeGA" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.svg" tooltip="Redo" enabled="false" command="_DdHOq9OfEfGfg-09RlemRw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_rBHRcNO7EfGB46bFLGnJfQ" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.svg" tooltip="Undo" enabled="false" command="_DdHOCNOfEfGfg-09RlemRw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_rBH4gNO7EfGB46bFLGnJfQ" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.svg" tooltip="Redo" enabled="false" command="_DdHOq9OfEfGfg-09RlemRw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_DdGA-dOfEfGfg-09RlemRw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -752,7 +752,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_DdGBRNOfEfGfg-09RlemRw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6cCEINO3EfG2edms70IeGA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.svg" tooltip="Pin Editor" type="Check" command="_DdHNv9OfEfGfg-09RlemRw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_rBJGoNO7EfGB46bFLGnJfQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.svg" tooltip="Pin Editor" enabled="false" type="Check" command="_DdHNv9OfEfGfg-09RlemRw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_DdGBUtOfEfGfg-09RlemRw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
