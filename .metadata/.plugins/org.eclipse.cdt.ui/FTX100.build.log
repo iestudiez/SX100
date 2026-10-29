@@ -1,0 +1,17 @@
+16:00:26 **** Incremental Build of configuration Debug for project FTX100 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F405xx -c -I"C:/Src/STM32/SX100_SRC/FTX100/Inc" -I"C:/Src/STM32/SX100_SRC/Chip_Headers/CMSIS/Include" -I"C:/Src/STM32/SX100_SRC/Chip_Headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Src/STM32/SX100_SRC/FTX100/GUI/Inc" -I"C:/Src/STM32/SX100_SRC/SX100LIB/Inc" -I"C:/Src/STM32/SX100_SRC/SX100LIB/GUI/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "FTX100.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Src\STM32\SX100_SRC\FTX100\STM32F405VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FTX100.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FTX100.elf
+ 
+arm-none-eabi-size  FTX100.elf 
+arm-none-eabi-objdump -h -S FTX100.elf  > "FTX100.list"
+   text	   data	    bss	    dec	    hex	filename
+  53140	    128	   5816	  59084	   e6cc	FTX100.elf
+Finished building: default.size.stdout
+ 
+Finished building: FTX100.list
+ 
+
+16:00:28 Build Finished. 0 errors, 0 warnings. (took 1s.503ms)
+
