@@ -1,0 +1,91 @@
+/**
+ ******************************************************************************
+ * @file        : app.h
+ * @author      : Estudiez, Ivan
+ * @brief       : User Application (Fertilizer-Incorporator)
+ * @date        : 24/06/2026
+ * @version     : 1.1
+ ******************************************************************************
+ *	(24/06/2026)
+ *	Add: Update parameters only when configuration is in progress
+ *	Add: app_PowerLed() routine
+ *
+ *
+ ******************************************************************************
+ */
+
+#ifndef APP_H_
+#define APP_H_
+
+#include <stdint.h>
+#include <stdbool.h>
+#include "pid.h"
+
+// Definitions
+// ----------------------------------------------------------------------------
+#define APP_ERROR_PID					(0x01)
+#define APP_ERROR_GPS					(0x02)
+#define APP_ERROR_CAN					(0x04)
+#define APP_ERROR_TEMP					(0x08)
+
+typedef enum DoseSelection_e
+{
+	DOSE_PRESET_1 = 1,
+	DOSE_PRESET_2 = 2,
+	DOSE_PRESET_3 = 3,
+	DOSE_PRESET_4 = 4,
+	DOSE_PRESET_5 = 5
+} DoseSelection_e;
+
+// ----------------------------------------------------------------------------
+extern bool APP_AutoMode;
+extern bool APP_EnableMotor;
+extern bool APP_SaveConfigRequest;
+extern bool APP_CalibScreen;
+extern bool APP_CalibStart;
+extern bool APP_CalibDone;
+extern bool APP_SimuMode;
+extern bool APP_WorkingPosition;
+extern bool APP_ConfigInProgress;
+// ----------------------------------------------------------------------------
+extern uint8_t APP_CalibSelectedPreset;
+extern uint8_t APP_DoseSelectedPreset;
+extern uint8_t APP_ErrorCode;
+// ----------------------------------------------------------------------------
+extern uint16_t APP_Speed;
+extern uint16_t APP_MinSpeed;
+extern uint8_t APP_FurrowWidth;
+extern uint32_t APP_MotorRpm;
+extern uint32_t APP_RpmSetpoint;
+// ----------------------------------------------------------------------------
+extern uint16_t APP_Dose;
+extern uint16_t APP_DosePreset1;
+extern uint16_t APP_DosePreset2;
+extern uint16_t APP_DosePreset3;
+extern uint16_t APP_DosePreset4;
+extern uint16_t APP_DosePreset5;
+// ----------------------------------------------------------------------------
+extern uint16_t APP_CalibValue;
+extern uint16_t APP_CalibPwm;
+// ----------------------------------------------------------------------------
+extern uint16_t APP_SimuSpeed;
+extern uint16_t APP_DisplaySpeed;
+extern uint16_t APP_DisplayMotorRpm;
+// ----------------------------------------------------------------------------
+extern uint16_t APP_MotorPulses;
+extern uint16_t APP_CalibRevolutions;
+extern uint8_t APP_CalibProgress;
+extern uint16_t APP_CalibCurrentRev;
+// ----------------------------------------------------------------------------
+extern PID1000_t APP_PidMotor;
+extern uint16_t APP_PidMaxInt;
+extern uint16_t APP_PidOutMin;
+extern uint16_t APP_PidOutMax;
+extern uint32_t APP_PidKp;
+extern uint32_t APP_PidKi;
+extern uint32_t APP_PidKd;
+
+void APP_Init(void);
+void APP_User(void);
+
+#endif /* APP_H_ */
