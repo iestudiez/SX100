@@ -1,0 +1,11 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:68:6:GNSS_Init	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:92:6:GNSS_Update	4
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:137:6:GNSS_FrameBuilder	5
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:208:6:GNSS_RmcParser	5
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:305:6:GNSS_SendCommand	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:327:9:GNSS_Checksum	3
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:345:6:GNSS_Enable	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:355:6:GNSS_Disable	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:367:6:extractToken	4
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:400:9:findTokenIdx	4
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gnss.c:420:6:GNSS_RmcReset	1

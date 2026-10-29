@@ -1,0 +1,14 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:59:6:SX100_Init	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:77:6:SX100_Update	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:100:6:SX100_DigitalInputs	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:126:6:processDigitalInput	32	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:219:6:SX100_PwmOutputs	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:248:10:isenConversion	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:261:6:SX100_AnalogInputs	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:298:6:adcConfigureInputs	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:348:6:ainChangeRange	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:386:10:adcReadCh	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:406:6:SX100_PowerSupply	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:426:6:SX100_INA239_Update	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:473:6:pwrmonAddSample	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/sx100board.c:489:10:pwrmonDoAverage	24	static

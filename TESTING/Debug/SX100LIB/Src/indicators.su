@@ -1,0 +1,4 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/indicators.c:33:6:INDICATORS_Update	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/indicators.c:51:6:ledAction	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/indicators.c:67:6:buzzer	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/indicators.c:110:6:updateGlobalVars	8	static

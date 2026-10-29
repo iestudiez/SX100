@@ -1,0 +1,165 @@
+/**
+ ******************************************************************************
+ * @file        : ads8688a.c
+ * @author      : Estudiez, Ivan
+ * @brief       : ASD8688A Driver
+ * @date        : 20/10/2026
+ * @version     : 1.0
+ ******************************************************************************
+ * Change control:
+ * 1.0 - (20/10/2026) Release version
+ *
+ *
+ *
+ ******************************************************************************
+ */
+
+#include "ads8688a.h"
+
+// Private functions
+// ----------------------------------------------------------------------------
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief	ADS8688A SPI communication setup
+ * ----------------------------------------------------------------------------
+ * @return	Error code
+ * ----------------------------------------------------------------------------
+ */
+uint8_t ADS8688A_SpiInit(void)
+{
+	// Exit if SPI2 peripheral is busy
+	if (ADS8688A_SPI->SR & SPI_SR_BSY)
+		return 1;
+
+	SPI_Disable(ADS8688A_SPI);
+
+	// Configure CPOL and CPHA
+	ADS8688A_SPI->CR1 &= ~(0x03);
+	ADS8688A_SPI->CR1 |= (ADS8688A_CPOL << SPI_CR1_CPOL_Pos);
+	ADS8688A_SPI->CR1 |= (ADS8688A_CPHA << SPI_CR1_CPHA_Pos);
+
+	// Data format 8-bit mode.
+	ADS8688A_SPI->CR1 &= ~(SPI_CR1_DFF);
+
+	SPI_Enable(ADS8688A_SPI);
+	return 0;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief
+ * ----------------------------------------------------------------------------
+ */
+void ADS8688A_Init(void)
+{
+	// Setup SPI communication for ADC
+	ADS8688A_SpiInit(0);
+
+	// Configure all channels in the 5.12V range
+	for (uint8_t ch = ADC_REG_CH0_RANGE; ch <= ADC_REG_CH7_RANGE; ch++)
+		ADS8688A_WriteRegister(ch, ADC_RANGE_UNI_5V12);
+
+	// Configure Auto Sequence Channels
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief
+ * ----------------------------------------------------------------------------
+ * @param data
+ * @return
+ * ----------------------------------------------------------------------------
+ */
+uint8_t ADS8688A_Transfer(uint8_t data)
+{
+
+	// Wait until TXE is set
+	while (!(ADS8688A_SPI->SR & SPI_SR_TXE));
+
+	// Send Data
+	ADS8688A_SPI->DR = data;
+
+	// Wait for data
+	while (!(ADS8688A_SPI->SR & SPI_SR_RXNE));
+
+	// Return read-back byte
+	return (uint8_t) (ADS8688A_SPI->DR);
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief			Write to a device register
+ * ----------------------------------------------------------------------------
+ * @param reg		ADS8688A Register
+ * @param data		Data to write
+ * ----------------------------------------------------------------------------
+ */
+uint8_t ADS8688A_WriteRegister(uint8_t reg, uint8_t data)
+{
+	uint8_t readback;
+
+	ADS8688A_Enable();
+
+	// Send write operation
+	// (Bits 7-1) Register address, (Bit 0) Write=1/ Read=0
+	ADS8688A_Transfer((reg << 1U) | 0x01);
+
+	// Send data
+	ADS8688A_Transfer(data);
+
+	// Read register content
+	readback = (uint8_t) ADS8688A_Transfer(0x00);
+
+	ADS8688A_Disable();
+
+	return readback;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief			Read a device register
+ * ----------------------------------------------------------------------------
+ * @param reg		ADS8688A Register
+ * ----------------------------------------------------------------------------
+ */
+uint8_t ADS8688A_ReadRegister(uint8_t reg)
+{
+	uint8_t readback;
+
+	ADS8688A_Enable();
+
+	// (Bits 7-1) Register address, (Bit 0) Write=1/ Read=0
+	ADS8688A_Transfer(reg << (1U));
+
+	// Send dummy data
+	ADS8688A_Transfer(0x00);
+
+	// Read register content
+	readback = (uint8_t) ADS8688A_Transfer(0x00);
+
+	ADS8688A_Disable();
+
+	return readback;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief		Enable ADS8688A device
+ * ----------------------------------------------------------------------------
+ */
+void ADS8688A_Enable(void)
+{
+	GPIO_Write(ADS8688A_CS_GPIO, ADS8688A_CS_PIN, CS_LOW);
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief		Disable ADS8688A device
+ * ----------------------------------------------------------------------------
+ */
+void ADS8688A_Disable(void)
+{
+	GPIO_Write(ADS8688A_CS_GPIO, ADS8688A_CS_PIN, CS_HIGH);
+}
+

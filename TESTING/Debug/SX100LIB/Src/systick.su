@@ -1,0 +1,6 @@
+C:/OneDrive/SRC/ST/SX100_SRC/Chip_Headers/CMSIS/Include/core_cm4.h:1777:22:__NVIC_ClearPendingIRQ	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/Chip_Headers/CMSIS/Include/core_cm4.h:1816:22:__NVIC_SetPriority	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/Chip_Headers/CMSIS/Include/core_cm4.h:2022:26:SysTick_Config	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/systick.c:35:6:SYSTICK_DelayMs	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/systick.c:63:6:SYSTICK_Config	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/systick.c:73:6:SysTick_Handler	8	static

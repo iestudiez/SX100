@@ -1,0 +1,8 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/scheduler.c:45:6:SCHEDULER_Init	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/scheduler.c:66:6:SCHEDULER_Update	5
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/scheduler.c:101:9:SCHEDULER_AddTask	5
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/scheduler.c:142:6:SCHEDULER_DispatchTasks	4
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/scheduler.c:172:6:SCHEDULER_Start	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/scheduler.c:182:9:SCHEDULER_DeleteTask	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/scheduler.c:212:6:TIM7_IRQHandler	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/scheduler.c:229:6:SCHEDULER_ReportStatus	1

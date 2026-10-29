@@ -1,0 +1,498 @@
+/**
+ ******************************************************************************
+ * @file        : sx100board.c
+ * @author      : Estudiez, Ivan
+ * @brief       : Power Board Management
+ * @date        : 15/10/2026
+ * @version     : 1.0
+ ******************************************************************************
+ */
+
+#include <stm32f4xx.h>
+#include "sx100board.h"
+#include "ina239.h"
+#include "gpio.h"
+#include "ads8688a.h"
+
+// ----------------------------------------------------------------------------
+// Defines
+// ----------------------------------------------------------------------------
+#define FREQ_FACTOR_K				(655350U)
+#define PWRMON_AVG_SAMPLES			(10U)
+#define PWRMON_AVG_INTERVAL			(10U)
+#define ADC_DELAY_US				(5U)
+
+// ----------------------------------------------------------------------------
+// Public variables
+// ----------------------------------------------------------------------------
+SX100BoardIO_t SX100;
+
+// ----------------------------------------------------------------------------
+// Private variables
+// ----------------------------------------------------------------------------
+uint8_t powerMon_Cmd[3];
+uint16_t isenRaw[4];
+uint16_t ainRaw[2];
+
+// ----------------------------------------------------------------------------
+// Private prototypes
+// ----------------------------------------------------------------------------
+void SX100_DigitalInputs(void);
+void SX100_PwmOutputs(void);
+void SX100_INA239_Update(void);
+void SX100_AnalogInputs(void);
+void SX100_PowerSupply(void);
+
+void processDigitalInput(uint8_t i);
+void pwrmonAddSample(uint16_t array[], uint16_t sample);
+void adcConfigureInputs(void);
+void ainChangeRange(uint8_t input);
+uint16_t pwrmonDoAverage(uint16_t array[]);
+uint16_t adcReadCh(uint8_t ch);
+uint16_t isenConversion(uint16_t value);
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief	Initialize the power board
+ * ----------------------------------------------------------------------------
+ */
+void SX100_Init(void)
+{
+	// Power monitor initialization
+	INA239_Init();
+
+	// ADC initialization
+	ADS8688A_Init();
+
+	// Timers initialization
+	for (uint8_t i = 0; i < SYSTEM_NUMBER_OF_DIN; i++)
+		SYSTEM_FreqInConfig(i, SX100.Din[i].Mode);
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief	Execute all processes related to the power board.
+ * ----------------------------------------------------------------------------
+ */
+void SX100_Update(void)
+{
+	// Process Power Supplies
+	SX100_PowerSupply();
+
+	// Process Digital Inputs (Modes: On/Off, Frequency, Counter)
+	SX100_DigitalInputs();
+
+	// Process Analog Inputs
+	SX100_AnalogInputs();
+
+	// Process Power Monitor
+	SX100_INA239_Update();
+
+	// Process Power Outputs
+	SX100_PwmOutputs();
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief		Process all digital frequency inputs of the system
+ * ----------------------------------------------------------------------------
+ */
+void SX100_DigitalInputs(void)
+{
+	static DinMode_e dinPrevOperatingMode[SYSTEM_NUMBER_OF_DIN];
+
+	// Configure digital inputs
+	// ------------------------------------------------------------------------
+	for (uint8_t i = 0; i < SYSTEM_NUMBER_OF_DIN; i++)
+		if (dinPrevOperatingMode[i] != SX100.Din[i].Mode)
+		{
+			dinPrevOperatingMode[i] = SX100.Din[i].Mode;
+			SYSTEM_FreqInConfig(i, SX100.Din[i].Mode);
+		}
+
+	// Process all digital inputs
+	// ------------------------------------------------------------------------
+	for (uint8_t i = 0; i < SYSTEM_NUMBER_OF_DIN; i++)
+		processDigitalInput(i);
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief		Process a digital input
+ * ----------------------------------------------------------------------------
+ * @param i		Digital input to be processed
+ * ----------------------------------------------------------------------------
+ */
+void processDigitalInput(uint8_t i)
+{
+	uint32_t CCR_Value;
+
+	// Reset input
+	// ------------------------------------------------------------------------
+	if (SX100.Din[i].Reset)
+	{
+		SX100.Din[i].Counter = 0;
+		SX100.Din[i].Freq = 0;
+		SX100.Din[i].Rpm = 0;
+		SX100.Din[i].Timeout = 0;
+		SX100.Din[i].Value = false;
+		SX100.Din[i].Reset = false;
+		DinConf[i].tim->CNT = 0;
+		return;
+	}
+
+	// Digital input in ON/OFF mode
+	// ------------------------------------------------------------------------
+	if (SX100.Din[i].Mode == SYSTEM_DIN_INPUT_MODE)
+	{
+		SX100.Din[i].Value = GPIO_Read(DinConf[i].gpio, DinConf[i].pin);
+		SX100.Din[i].Freq = 0;
+		SX100.Din[i].Rpm = 0;
+		SX100.Din[i].Timeout = 0;
+		return;
+	}
+
+	// Digital input in counter mode
+	// ------------------------------------------------------------------------
+	if (SX100.Din[i].Mode == SYSTEM_DIN_COUNTER_MODE)
+	{
+		SX100.Din[i].Counter = DinConf[i].tim->CNT;
+		SX100.Din[i].Freq = 0;
+		SX100.Din[i].Rpm = 0;
+		SX100.Din[i].Value = false;
+		SX100.Din[i].Timeout = 0;
+		return;
+	}
+
+	// Digital input in frequency mode
+	// ------------------------------------------------------------------------
+	if (SX100.Din[i].Mode == SYSTEM_DIN_FREQUENCY_MODE)
+	{
+		// Clear unused members
+		SX100.Din[i].Counter = 0;
+		SX100.Din[i].Value = false;
+
+		// Determine which capture and compare record to use
+		if (DinConf[i].ts == TS_TI1FP1)
+			CCR_Value = DinConf[i].tim->CCR1;
+
+		if (DinConf[i].ts == TS_TI2FP2)
+			CCR_Value = DinConf[i].tim->CCR2;
+
+		if ((CCR_Value > 0) && (DinConf[i].tim->SR & TIM_SR_TIF_Msk))
+		{
+			// Clear interrupt flag
+			DinConf[i].tim->SR &= ~TIM_SR_TIF_Msk;
+
+			// Clear timeout
+			SX100.Din[i].Timeout = 0;
+
+			// Compute frequency ( Hz x 10)
+			SX100.Din[i].Freq = (FREQ_FACTOR_K / CCR_Value);
+
+			// Compute revolutions (RPM x 10)
+			if (SX100.Din[i].Div > 0)
+				SX100.Din[i].Rpm = (SX100.Din[i].Freq * 60) / (SX100.Din[i].Div);
+			else
+				SX100.Din[i].Rpm = 0;
+			return;
+		}
+
+		// Timeout control
+		// --------------------------------------------------------------------
+		SX100.Din[i].Timeout++;
+
+		if (SX100.Din[i].Timeout >= DIN_FREQ_TIMEOUT)
+		{
+			SX100.Din[i].Freq = 0;
+			SX100.Din[i].Rpm = 0;
+			SX100.Din[i].Timeout = DIN_FREQ_TIMEOUT;
+		}
+	}
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief	Processes PWM outputs
+ * -----------------------------------------------------------------------------
+ */
+void SX100_PwmOutputs(void)
+{
+	// Check duty cycle value
+	for (uint8_t i = 0; i < 4; i++)
+		if (SX100.Out[i].DutyCycle > 1000)
+			SX100.Out[i].DutyCycle = 1000;
+
+	// Set duty cycle
+	TIM1->CCR1 = SX100.Out[3].DutyCycle;
+	TIM1->CCR2 = SX100.Out[2].DutyCycle;
+	TIM1->CCR3 = SX100.Out[1].DutyCycle;
+	TIM1->CCR4 = SX100.Out[0].DutyCycle;
+
+	// Assign the measured currents to the outputs
+	SX100.Out[0].Current = isenConversion(isenRaw[0]);
+	SX100.Out[1].Current = isenConversion(isenRaw[1]);
+	SX100.Out[2].Current = isenConversion(isenRaw[2]);
+	SX100.Out[3].Current = isenConversion(isenRaw[3]);
+
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief			Convert the raw ADC value to milliamps
+ * -----------------------------------------------------------------------------
+ * @param value		ADC Value
+ * @return			Output current in milliamps
+ * -----------------------------------------------------------------------------
+ */
+uint16_t isenConversion(uint16_t value)
+{
+	int32_t result = (value * 10 / ADC_ISEN_SLOPE) - ADC_ISEN_OFFSET;
+	if (result < 0)
+		result = 0;
+	return (uint16_t) result;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief	Processes Analog Inputs
+ * -----------------------------------------------------------------------------
+ */
+void SX100_AnalogInputs(void)
+{
+	// Configure SPI communication for ADC
+	if (ADS8688A_SpiInit())
+		return;
+
+	// Perform analog inputs configuration
+	adcConfigureInputs();
+
+	// Receive CH0 data - Send CH4 request
+	isenRaw[2] = adcReadCh(ADC_CMD_MAN_CH4);
+
+	// Receive CH4 data - Send CH5 request
+	isenRaw[1] = adcReadCh(ADC_CMD_MAN_CH5);
+
+	// Receive CH5 data - Send CH7 request
+	isenRaw[0] = adcReadCh(ADC_CMD_MAN_CH7);
+
+	// Receive CH7 data - Send CH2 request
+	isenRaw[3] = adcReadCh(ADC_CMD_MAN_CH2);
+
+	// Receive CH2 data - Send CH3 request
+	ainRaw[0] = adcReadCh(ADC_CMD_MAN_CH3);
+
+	// Receive CH3 data - Send CH0 request
+	ainRaw[1] = adcReadCh(ADC_CMD_MAN_CH0);
+
+	// Assign values ​​to the analog inputs
+	SX100.Ain[0].Value = ainRaw[0];
+	SX100.Ain[1].Value = ainRaw[1];
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief		Configure Analog Inputs
+ * ----------------------------------------------------------------------------
+ */
+void adcConfigureInputs(void)
+{
+	// Invalid range assignment to force configuration of analog inputs in the startup
+	static AinRange_e rangeAin0 = 0x0F;
+	static AinRange_e rangeAin1 = 0x0F;
+
+	// Configure AIN0 input range
+	// ------------------------------------------------------------------------
+	if (SX100.Ain[0].Range != rangeAin0)
+	{
+		// Change the range of the analog input
+		ainChangeRange(0);
+
+		// Store new range selection
+		rangeAin0 = SX100.Ain[0].Range;
+	}
+
+	// Configure AIN1 input range
+	// ------------------------------------------------------------------------
+	if (SX100.Ain[1].Range != rangeAin1)
+	{
+		// Change the range of the analog input
+		ainChangeRange(1);
+
+		// Store new range selection
+		rangeAin1 = SX100.Ain[1].Range;
+	}
+
+	// AIN0 Enable 20mA current loop
+	// ------------------------------------------------------------------------
+	if (SX100.Ain[0].Enable20mA)
+		GPIO_Write(SYSTEM_CREN_AIN0_GPIO, SYSTEM_CREN_AIN0_PIN, true);
+	else
+		GPIO_Write(SYSTEM_CREN_AIN0_GPIO, SYSTEM_CREN_AIN0_PIN, false);
+
+	// AIN1 Enable 20mA current loop
+	// ------------------------------------------------------------------------
+	if (SX100.Ain[1].Enable20mA)
+		GPIO_Write(SYSTEM_CREN_AIN1_GPIO, SYSTEM_CREN_AIN1_PIN, true);
+	else
+		GPIO_Write(SYSTEM_CREN_AIN1_GPIO, SYSTEM_CREN_AIN1_PIN, false);
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief			Change the voltage range of the selected analog input
+ * ----------------------------------------------------------------------------
+ * @param ain		Analog input number
+ * ----------------------------------------------------------------------------
+ */
+void ainChangeRange(uint8_t input)
+{
+	uint8_t ch;
+
+	// Select analog input
+	// ------------------------------------------------------------------------
+	if (input == 0)
+		ch = ADC_REG_CH2_RANGE;
+
+	if (input == 1)
+		ch = ADC_REG_CH3_RANGE;
+
+	switch (SX100.Ain[input].Range)
+	{
+	case AIN_RANGE_5V12:
+		ADS8688A_WriteRegister(ch, ADC_RANGE_UNI_5V12);
+		SX100.Ain[input].Range = AIN_RANGE_5V12;
+		break;
+
+	case AIN_RANGE_2V56:
+		ADS8688A_WriteRegister(ch, ADC_RANGE_UNI_2V56);
+		SX100.Ain[input].Range = AIN_RANGE_2V56;
+		break;
+
+	default:
+		ADS8688A_WriteRegister(ch, ADC_RANGE_UNI_10V24);
+		SX100.Ain[input].Range = AIN_RANGE_10V24;
+	}
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief		Read an ADC channel
+ * -----------------------------------------------------------------------------
+ * @param ch	Selected channel
+ * @return		ADC conversion result
+ * -----------------------------------------------------------------------------
+ */
+uint16_t adcReadCh(uint8_t ch)
+{
+	uint16_t result;
+
+	ADS8688A_Enable();
+	ADS8688A_Transfer(ch);
+	ADS8688A_Transfer(ADC_CMD_NOOP);
+	result = (uint16_t) (ADS8688A_Transfer(ADC_CMD_NOOP) << 8U);
+	result |= (uint16_t) ADS8688A_Transfer(ADC_CMD_NOOP);
+	ADS8688A_Disable();
+	SYSTEM_DelayUs(ADC_DELAY_US);
+
+	return result;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief	Power supply management
+ * -----------------------------------------------------------------------------
+ */
+void SX100_PowerSupply(void)
+{
+	// External power supply (5V)
+	if (SX100.PowerSupply.Sensor5V)
+		GPIO_Write(SYSTEM_EXT_SENSOR_PWR_GPIO, SYSTEM_EXT_SENSOR_PWR_PIN, 1);
+	else
+		GPIO_Write(SYSTEM_EXT_SENSOR_PWR_GPIO, SYSTEM_EXT_SENSOR_PWR_PIN, 0);
+
+	// Internal power supply (NPN sensors)
+	if (SX100.PowerSupply.DinNpn)
+		GPIO_Write(SYSTEM_NPN_PWR_GPIO, SYSTEM_NPN_PWR_PIN, 1);
+	else
+		GPIO_Write(SYSTEM_NPN_PWR_GPIO, SYSTEM_NPN_PWR_PIN, 0);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief	Power monitor status update
+ * -----------------------------------------------------------------------------
+ */
+void SX100_INA239_Update(void)
+{
+	static uint16_t aCurrent[PWRMON_AVG_SAMPLES];
+	static uint16_t aVbus[PWRMON_AVG_SAMPLES];
+	static uint8_t pwrmonInterval = 0;
+
+	// Configure SPI communications
+	if (INA239_SpiInit())
+		return;
+
+	// Enable INA239
+	GPIO_Write(INA239_CS_GPIO, INA239_CS_PIN, 0);
+
+	// Establish the interval at which voltage and current readings are taken
+	if (pwrmonInterval < PWRMON_AVG_INTERVAL)
+		pwrmonInterval++;
+	else
+	{
+		pwrmonAddSample(aVbus, INA239_VBus());
+		pwrmonAddSample(aCurrent, INA239_VShunt());
+		pwrmonInterval = 0;
+	}
+
+	// Read bus voltage
+	SX100.Status.VBus = pwrmonDoAverage(aVbus);
+
+	// Read shunt current
+	SX100.Status.Current = (uint16_t) ((pwrmonDoAverage(aCurrent) * 27) / 100);
+
+	// Read die temperature
+	SX100.Status.Temp = INA239_Temperature();
+
+	// Calculate the system's power consumption (Watt x 100)
+	SX100.Status.Power = (uint16_t) ((SX100.Status.VBus * SX100.Status.Current) / 10000);
+
+	// Disable INA239
+	GPIO_Write(INA239_CS_GPIO, INA239_CS_PIN, 1);
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief			Add a sample to the power monitor array
+ * ----------------------------------------------------------------------------
+ * @param array		Array containing samples of the power monitor readings
+ * @param sample	Sample to add
+ * ----------------------------------------------------------------------------
+ */
+void pwrmonAddSample(uint16_t array[], uint16_t sample)
+{
+	for (uint8_t i = 0; i < PWRMON_AVG_SAMPLES - 1; i++)
+		array[i] = array[i + 1];
+
+	array[PWRMON_AVG_SAMPLES - 1] = sample;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief			Calculate the average of the values ​​contained in the array
+ * ----------------------------------------------------------------------------
+ * @param array		Array containing samples of the power monitor readings
+ * @return			Result of the average calculation
+ * ----------------------------------------------------------------------------
+ */
+uint16_t pwrmonDoAverage(uint16_t array[])
+{
+	uint32_t sum = 0;
+
+	for (uint8_t i = 0; i < PWRMON_AVG_SAMPLES; i++)
+		sum += array[i];
+
+	return (uint16_t) (sum / PWRMON_AVG_SAMPLES);
+}
+

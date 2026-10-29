@@ -1,0 +1,14 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:29:6:TIM_Init	40	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:58:6:TIM_ChEnable	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:68:6:TIM_Enable	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:76:6:TIM_Disable	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:86:6:TIM_Update_Generation	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:93:6:TIM_Config_Reset	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:128:6:sysClk_Enable	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:175:6:sclr_Init	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:203:6:tch_Init	40	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:303:6:tch_Enable	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:328:6:mms_Init	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:340:6:sm_Init	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:356:6:dier_Init	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/tim.c:384:6:tch_Moe	8	static

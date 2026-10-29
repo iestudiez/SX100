@@ -1,0 +1,6 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/dma.c:20:6:DMA_Init	27
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/dma.c:206:6:DMA_Stream_Reset	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/dma.c:222:6:DMA_Clear_IntFlags	9
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/dma.c:244:6:DMA_Config_Reset	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/dma.c:264:6:DMA_Stream_Enable	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/dma.c:271:6:DMA_Stream_Disable	2

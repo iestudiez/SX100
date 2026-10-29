@@ -1,0 +1,4 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/menu_list.c:36:6:GUI_MenuList	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/menu_list.c:69:6:menuList_Init	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/menu_list.c:103:6:menuList_KeyActions	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/menu_list.c:158:6:menuList_Draw	40	static

@@ -1,0 +1,10 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/glcd.c:50:9:GLCD_TextWidth	32	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/glcd.c:83:11:GLCD_DrawText	48	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/glcd.c:158:11:GLCD_DrawTextRight	40	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/glcd.c:173:11:GLCD_DrawChar	48	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/glcd.c:257:6:GLCD_ScreenBitmap	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/glcd.c:293:6:GLCD_PutBitmap	96	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/glcd.c:361:6:GLCD_PutTile	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/glcd.c:411:6:GLCD_DrawBox	136	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/glcd.c:512:6:GLCD_ProgressBar	40	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/glcd.c:546:6:GLCD_DrawLine	80	static

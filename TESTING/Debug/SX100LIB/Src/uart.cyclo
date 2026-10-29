@@ -1,0 +1,10 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/uart.c:47:5:__io_putchar	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/uart.c:60:6:UART_Init	14
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/uart.c:149:6:UART_Enable	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/uart.c:161:6:UART_Disable	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/uart.c:173:6:UART_Putchar	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/uart.c:186:6:UART_Read	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/uart.c:199:6:UART_SetBaudrate	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/uart.c:212:6:UART_Config_Reset	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/uart.c:229:6:UART_ClearTcFlag	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/uart.c:237:6:UART_ClearIdleFlag	1

@@ -1,0 +1,16 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:42:6:LCD_CS	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:60:6:LCD_RS	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:81:6:LCD_Data	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:96:6:LCD_Cmd	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:111:6:LCD_Reset	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:124:6:LCD_Clear	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:156:6:LCD_SetPage	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:170:6:LCD_SetColumn	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:184:6:LCD_Init	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:224:6:LCD_Contrast	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:243:6:LCD_Pixel	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:267:6:LCD_InvertPixel	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:291:6:LCD_Byte	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:333:6:LCD_Update	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:380:6:LCD_SendPage	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/lcd.c:415:6:LCD_ClearBuffer	16	static

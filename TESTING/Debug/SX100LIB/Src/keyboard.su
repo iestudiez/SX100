@@ -1,0 +1,4 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/keyboard.c:41:6:KEYBOARD_Update	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/keyboard.c:52:6:KEYBOARD_Scan	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/keyboard.c:120:6:KEYBOARD_AssingEvent	8	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/keyboard.c:230:6:keyBeep	4	static

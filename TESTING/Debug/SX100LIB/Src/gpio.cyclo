@@ -1,0 +1,4 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gpio.c:24:6:GPIO_Init	17
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gpio.c:125:6:GPIO_Config_Reset	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gpio.c:141:6:GPIO_Write	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gpio.c:156:6:GPIO_Read	2

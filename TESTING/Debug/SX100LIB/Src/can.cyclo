@@ -1,0 +1,6 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/can.c:28:6:CAN_Init	7
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/can.c:132:6:CAN_Config_Reset	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/can.c:149:6:CAN_WriteMsg	6
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/can.c:206:6:CAN_ReadMsg	6
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/can.c:272:6:CAN_FilterAllowAll	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/can.c:310:6:CAN_Add32bitFilter	7

@@ -1,0 +1,133 @@
+/**
+ ******************************************************************************
+ * @file        : indicators.c
+ * @author      : Estudiez, Ivan
+ * @brief       : Indicators Library
+ * @date        : 07/11/2025
+ * @version     : 1.0
+ ******************************************************************************
+ */
+
+#include <sx100board.h>
+#include <system_sx100.h>
+#include "indicators.h"
+#include "global.h"
+#include "gpio.h"
+
+//Indicators_t Indicator;
+
+// Global variables
+// -----------------------------------------------------------------------------
+static bool gBuzzAlarm;
+
+// Function prototypes
+// -----------------------------------------------------------------------------
+bool ledAction(LedAction_e action);
+void updateGlobalVars(void);
+void buzzer(void);
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief
+ * -----------------------------------------------------------------------------
+ */
+void INDICATORS_Update(void)
+{
+	updateGlobalVars();
+
+	SYSTEM_PwrLed(ledAction(SX100.Led.Power));
+	SYSTEM_MsgLed(ledAction(SX100.Led.Message));
+	SYSTEM_ErrLed(ledAction(SX100.Led.Error));
+	SYSTEM_LcdRed(ledAction(SX100.Backlight.Red));
+	SYSTEM_LcdGreen(ledAction(SX100.Backlight.Green));
+	SYSTEM_LcdBlue(ledAction(SX100.Backlight.Blue));
+	buzzer();
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief
+ * -----------------------------------------------------------------------------
+ */
+bool ledAction(LedAction_e action)
+{
+	if (action == LED_ON)
+		return true;
+
+	if (action == LED_BLINK)
+		return GLOBAL_Blink;
+
+	return false;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief
+ * -----------------------------------------------------------------------------
+ */
+void buzzer(void)
+{
+	if (SX100.Buzzer == BUZZER_OFF)
+	{
+		GPIO_Write(SYSTEM_BUZZ_LOW_GPIO, SYSTEM_BUZZ_LOW_PIN, 0);
+		GPIO_Write(SYSTEM_BUZZ_HIGH_GPIO, SYSTEM_BUZZ_HIGH_PIN, 0);
+		return;
+	}
+
+	if (SX100.Buzzer == BUZZER_ALARM)
+	{
+		if (gBuzzAlarm)
+		{
+			GPIO_Write(SYSTEM_BUZZ_LOW_GPIO, SYSTEM_BUZZ_LOW_PIN, 1);
+			GPIO_Write(SYSTEM_BUZZ_HIGH_GPIO, SYSTEM_BUZZ_HIGH_PIN, 1);
+		}
+		else
+		{
+			GPIO_Write(SYSTEM_BUZZ_LOW_GPIO, SYSTEM_BUZZ_LOW_PIN, 0);
+			GPIO_Write(SYSTEM_BUZZ_HIGH_GPIO, SYSTEM_BUZZ_HIGH_PIN, 0);
+		}
+	}
+
+	if (SX100.Buzzer == BUZZER_BEEP)
+	{
+		GPIO_Write(SYSTEM_BUZZ_LOW_GPIO, SYSTEM_BUZZ_LOW_PIN, 1);
+		GPIO_Write(SYSTEM_BUZZ_HIGH_GPIO, SYSTEM_BUZZ_HIGH_PIN, 0);
+		SX100.Buzzer = BUZZER_OFF;
+	}
+
+	if (SX100.Buzzer == BUZZER_BEEP_LOUD)
+	{
+		GPIO_Write(SYSTEM_BUZZ_LOW_GPIO, SYSTEM_BUZZ_LOW_PIN, 1);
+		GPIO_Write(SYSTEM_BUZZ_HIGH_GPIO, SYSTEM_BUZZ_HIGH_PIN, 1);
+		SX100.Buzzer = BUZZER_OFF;
+	}
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief
+ * -----------------------------------------------------------------------------
+ */
+void updateGlobalVars(void)
+{
+	static uint8_t buzzState = 0;
+
+	// Switching variables
+	GLOBAL_Blink = !GLOBAL_Blink;
+	GLOBAL_Blink2 = GLOBAL_FreqDivider(GLOBAL_Blink);
+
+	if (SX100.Buzzer != BUZZER_ALARM)
+		return;
+
+	if (buzzState < 2)
+	{
+		gBuzzAlarm = true;
+		buzzState++;
+	}
+	else
+	{
+		gBuzzAlarm = false;
+		buzzState = 0;
+	}
+}
+

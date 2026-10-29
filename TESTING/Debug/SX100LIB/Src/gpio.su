@@ -1,0 +1,4 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gpio.c:24:6:GPIO_Init	32	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gpio.c:125:6:GPIO_Config_Reset	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gpio.c:141:6:GPIO_Write	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/gpio.c:156:6:GPIO_Read	16	static

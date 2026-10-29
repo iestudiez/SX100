@@ -1,0 +1,5 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/adc.c:19:6:ADC_Init	14
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/adc.c:89:6:ADC_Enable	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/adc.c:96:6:ADC_Disable	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/adc.c:102:6:ADC_Start	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/adc.c:108:6:ADC_Config_Reset	2

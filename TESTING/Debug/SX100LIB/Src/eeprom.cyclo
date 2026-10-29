@@ -1,0 +1,8 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/eeprom.c:38:6:EEPROM_CS	3
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/eeprom.c:59:6:EEPROM_Read	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/eeprom.c:88:6:EEPROM_Write	3
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/eeprom.c:128:10:EEPROM_GetPageAddress	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/eeprom.c:144:10:EEPROM_GetWord	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/eeprom.c:157:6:EEPROM_StoreWord	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/eeprom.c:172:6:EEPROM_PackByte	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/eeprom.c:189:6:EEPROM_UnpackByte	2

@@ -1,0 +1,8 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/input_box.c:50:6:GUI_InputBox	4
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/input_box.c:92:6:inputBox_Init	5
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/input_box.c:118:6:GUI_InputBox_UpdateValue	7
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/input_box.c:159:6:inputBox_UpdateTxt	3
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/input_box.c:190:6:inputBox_KeyActions	25
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/input_box.c:343:6:inputBox_DrawFrame	1
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/input_box.c:356:6:inputBox_DrawText	2
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/input_box.c:411:6:inputbox_Boolean	3

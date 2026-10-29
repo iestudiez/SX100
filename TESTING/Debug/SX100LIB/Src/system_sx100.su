@@ -1,0 +1,11 @@
+C:/OneDrive/SRC/ST/SX100_SRC/Chip_Headers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/system_sx100.c:41:6:SYSTEM_Init	48	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/system_sx100.c:756:6:SYSTEM_PwrLed	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/system_sx100.c:771:6:SYSTEM_MsgLed	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/system_sx100.c:786:6:SYSTEM_ErrLed	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/system_sx100.c:806:6:SYSTEM_LcdGreen	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/system_sx100.c:821:6:SYSTEM_LcdRed	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/system_sx100.c:836:6:SYSTEM_LcdBlue	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/system_sx100.c:856:6:SYSTEM_DelayUs	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/system_sx100.c:885:6:SYSTEM_DelayMs	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/Src/system_sx100.c:903:6:SYSTEM_FreqInConfig	56	static

@@ -1,0 +1,4 @@
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/list_box.c:34:6:GUI_ListBox	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/list_box.c:67:6:listBox_Init	24	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/list_box.c:118:6:listBox_KeyActions	16	static
+C:/OneDrive/SRC/ST/SX100_SRC/SX100LIB/GUI/Src/list_box.c:188:6:listBox_Draw	64	static

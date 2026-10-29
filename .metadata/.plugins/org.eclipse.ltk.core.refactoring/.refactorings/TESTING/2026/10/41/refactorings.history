@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;TESTING/SX100LIB/Src/system_cx100.c&apos; to &apos;system_sx100.c&apos;" description="Rename resource &apos;system_cx100.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="SX100LIB/Src/system_cx100.c" name="system_sx100.c" stamp="1791561999698" updateReferences="true"/>
+</session>
