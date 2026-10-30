@@ -22,8 +22,10 @@
 // ----------------------------------------------------------------------------
 // Public variables
 // ----------------------------------------------------------------------------
-char UART_RxBuffer[UART_RX_BUFFER_SIZE];
-char UART_TxBuffer[UART_TX_BUFFER_SIZE];
+char UART1_RxBuffer[UART1_RX_BUFFER_SIZE];
+char UART1_TxBuffer[UART1_TX_BUFFER_SIZE];
+char UART2_RxBuffer[UART2_RX_BUFFER_SIZE];
+char UART2_TxBuffer[UART2_TX_BUFFER_SIZE];
 
 // ----------------------------------------------------------------------------
 // Private variables

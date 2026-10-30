@@ -1,0 +1,16 @@
+/**
+ ******************************************************************************
+ * @file        : accessbox.h
+ * @author      : Ivan.Estudiez
+ * @brief       : Access box graphical control
+ * @date        : 30/10/2026
+ * @version     : 1.0
+ ******************************************************************************
+ */
+
+#ifndef GUI_INC_ACCESSBOX_H_
+#define GUI_INC_ACCESSBOX_H_
+
+
+
+#endif /* GUI_INC_ACCESSBOX_H_ */

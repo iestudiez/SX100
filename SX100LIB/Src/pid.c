@@ -99,7 +99,7 @@ void PID_Pwm1000(PID1000_t *pid)
 		output = 0;
 
 	// Linearize and assign the result to the output
-	*pid->pOutput = (uint16_t) lintrafo(output, 0, 1000, pid->outputMin, pid->outputMax);
+	*pid->pOutput = (uint16_t) linTrafo(output, 0, 1000, pid->outputMin, pid->outputMax);
 
 	// Checking the limits of the variable
 	if (pid->allowedErr > PID_MAX_ALLOWED_SETPOINT_ERROR)

@@ -210,6 +210,7 @@ typedef struct DinConfig_t
 // Public functions
 // ----------------------------------------------------------------------------
 void SYSTEM_Init();
+void SYSTEM_RandomGeneratorInit(void);
 void SYSTEM_PwrLed(bool enable);
 void SYSTEM_MsgLed(bool enable);
 void SYSTEM_ErrLed(bool enable);

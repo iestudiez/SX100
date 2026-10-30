@@ -173,8 +173,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./SX100LIB/GUI/Src/gui_utils.o
  .debug_macro   0x00000000      0x1df ./SX100LIB/GUI/Src/gui_utils.o
  .debug_macro   0x00000000       0x1c ./SX100LIB/GUI/Src/gui_utils.o
- .debug_line    0x00000000      0x694 ./SX100LIB/GUI/Src/gui_utils.o
- .debug_str     0x00000000     0x7388 ./SX100LIB/GUI/Src/gui_utils.o
+ .debug_line    0x00000000      0x68e ./SX100LIB/GUI/Src/gui_utils.o
+ .debug_str     0x00000000     0x7382 ./SX100LIB/GUI/Src/gui_utils.o
  .comment       0x00000000       0x44 ./SX100LIB/GUI/Src/gui_utils.o
  .debug_frame   0x00000000       0x68 ./SX100LIB/GUI/Src/gui_utils.o
  .ARM.attributes
@@ -274,8 +274,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./SX100LIB/GUI/Src/input_box.o
  .debug_macro   0x00000000      0x146 ./SX100LIB/GUI/Src/input_box.o
  .debug_macro   0x00000000       0x28 ./SX100LIB/GUI/Src/input_box.o
- .debug_line    0x00000000      0xa53 ./SX100LIB/GUI/Src/input_box.o
- .debug_str     0x00000000     0x7fbd ./SX100LIB/GUI/Src/input_box.o
+ .debug_line    0x00000000      0xa4d ./SX100LIB/GUI/Src/input_box.o
+ .debug_str     0x00000000     0x7fb7 ./SX100LIB/GUI/Src/input_box.o
  .comment       0x00000000       0x44 ./SX100LIB/GUI/Src/input_box.o
  .debug_frame   0x00000000      0x13c ./SX100LIB/GUI/Src/input_box.o
  .ARM.attributes
@@ -293,7 +293,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x11 ./SX100LIB/GUI/Src/input_box_bmp.o
  .debug_macro   0x00000000      0xade ./SX100LIB/GUI/Src/input_box_bmp.o
  .debug_line    0x00000000       0x5e ./SX100LIB/GUI/Src/input_box_bmp.o
- .debug_str     0x00000000     0x2ec0 ./SX100LIB/GUI/Src/input_box_bmp.o
+ .debug_str     0x00000000     0x2eba ./SX100LIB/GUI/Src/input_box_bmp.o
  .comment       0x00000000       0x44 ./SX100LIB/GUI/Src/input_box_bmp.o
  .ARM.attributes
                 0x00000000       0x34 ./SX100LIB/GUI/Src/input_box_bmp.o
@@ -384,8 +384,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./SX100LIB/GUI/Src/list_box.o
  .debug_macro   0x00000000       0x28 ./SX100LIB/GUI/Src/list_box.o
  .debug_macro   0x00000000       0x1c ./SX100LIB/GUI/Src/list_box.o
- .debug_line    0x00000000      0x8af ./SX100LIB/GUI/Src/list_box.o
- .debug_str     0x00000000     0x806a ./SX100LIB/GUI/Src/list_box.o
+ .debug_line    0x00000000      0x8a9 ./SX100LIB/GUI/Src/list_box.o
+ .debug_str     0x00000000     0x8064 ./SX100LIB/GUI/Src/list_box.o
  .comment       0x00000000       0x44 ./SX100LIB/GUI/Src/list_box.o
  .debug_frame   0x00000000       0xa4 ./SX100LIB/GUI/Src/list_box.o
  .ARM.attributes
@@ -403,7 +403,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x11 ./SX100LIB/GUI/Src/list_box_bmp.o
  .debug_macro   0x00000000      0xade ./SX100LIB/GUI/Src/list_box_bmp.o
  .debug_line    0x00000000       0x5d ./SX100LIB/GUI/Src/list_box_bmp.o
- .debug_str     0x00000000     0x2ec0 ./SX100LIB/GUI/Src/list_box_bmp.o
+ .debug_str     0x00000000     0x2eba ./SX100LIB/GUI/Src/list_box_bmp.o
  .comment       0x00000000       0x44 ./SX100LIB/GUI/Src/list_box_bmp.o
  .ARM.attributes
                 0x00000000       0x34 ./SX100LIB/GUI/Src/list_box_bmp.o
@@ -494,8 +494,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./SX100LIB/GUI/Src/menu_list.o
  .debug_macro   0x00000000       0x1c ./SX100LIB/GUI/Src/menu_list.o
  .debug_macro   0x00000000       0x28 ./SX100LIB/GUI/Src/menu_list.o
- .debug_line    0x00000000      0x866 ./SX100LIB/GUI/Src/menu_list.o
- .debug_str     0x00000000     0x7e5d ./SX100LIB/GUI/Src/menu_list.o
+ .debug_line    0x00000000      0x860 ./SX100LIB/GUI/Src/menu_list.o
+ .debug_str     0x00000000     0x7e57 ./SX100LIB/GUI/Src/menu_list.o
  .comment       0x00000000       0x44 ./SX100LIB/GUI/Src/menu_list.o
  .debug_frame   0x00000000       0xa4 ./SX100LIB/GUI/Src/menu_list.o
  .ARM.attributes
@@ -513,7 +513,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x11 ./SX100LIB/GUI/Src/menu_list_bmp.o
  .debug_macro   0x00000000      0xade ./SX100LIB/GUI/Src/menu_list_bmp.o
  .debug_line    0x00000000       0x5e ./SX100LIB/GUI/Src/menu_list_bmp.o
- .debug_str     0x00000000     0x2ec2 ./SX100LIB/GUI/Src/menu_list_bmp.o
+ .debug_str     0x00000000     0x2ebc ./SX100LIB/GUI/Src/menu_list_bmp.o
  .comment       0x00000000       0x44 ./SX100LIB/GUI/Src/menu_list_bmp.o
  .ARM.attributes
                 0x00000000       0x34 ./SX100LIB/GUI/Src/menu_list_bmp.o
@@ -559,8 +559,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c ./SX100LIB/GUI/Src/msgbox.o
  .debug_macro   0x00000000       0x28 ./SX100LIB/GUI/Src/msgbox.o
  .debug_macro   0x00000000      0x190 ./SX100LIB/GUI/Src/msgbox.o
- .debug_line    0x00000000      0x614 ./SX100LIB/GUI/Src/msgbox.o
- .debug_str     0x00000000     0x4776 ./SX100LIB/GUI/Src/msgbox.o
+ .debug_line    0x00000000      0x60e ./SX100LIB/GUI/Src/msgbox.o
+ .debug_str     0x00000000     0x4770 ./SX100LIB/GUI/Src/msgbox.o
  .comment       0x00000000       0x44 ./SX100LIB/GUI/Src/msgbox.o
  .debug_frame   0x00000000       0xa4 ./SX100LIB/GUI/Src/msgbox.o
  .ARM.attributes
@@ -579,8 +579,8 @@ Discarded input sections
                 0x00000000       0x18 ./SX100LIB/GUI/Src/msgbox_bmp.o
  .debug_macro   0x00000000       0x1b ./SX100LIB/GUI/Src/msgbox_bmp.o
  .debug_macro   0x00000000      0xade ./SX100LIB/GUI/Src/msgbox_bmp.o
- .debug_line    0x00000000       0x99 ./SX100LIB/GUI/Src/msgbox_bmp.o
- .debug_str     0x00000000     0x2eef ./SX100LIB/GUI/Src/msgbox_bmp.o
+ .debug_line    0x00000000       0x93 ./SX100LIB/GUI/Src/msgbox_bmp.o
+ .debug_str     0x00000000     0x2ee9 ./SX100LIB/GUI/Src/msgbox_bmp.o
  .comment       0x00000000       0x44 ./SX100LIB/GUI/Src/msgbox_bmp.o
  .ARM.attributes
                 0x00000000       0x34 ./SX100LIB/GUI/Src/msgbox_bmp.o
@@ -596,8 +596,8 @@ Discarded input sections
                 0x00000000       0x18 ./SX100LIB/GUI/Src/symbols_bmp.o
  .debug_macro   0x00000000       0x1b ./SX100LIB/GUI/Src/symbols_bmp.o
  .debug_macro   0x00000000      0xade ./SX100LIB/GUI/Src/symbols_bmp.o
- .debug_line    0x00000000       0x9b ./SX100LIB/GUI/Src/symbols_bmp.o
- .debug_str     0x00000000     0x2ed4 ./SX100LIB/GUI/Src/symbols_bmp.o
+ .debug_line    0x00000000       0x95 ./SX100LIB/GUI/Src/symbols_bmp.o
+ .debug_str     0x00000000     0x2ece ./SX100LIB/GUI/Src/symbols_bmp.o
  .comment       0x00000000       0x44 ./SX100LIB/GUI/Src/symbols_bmp.o
  .ARM.attributes
                 0x00000000       0x34 ./SX100LIB/GUI/Src/symbols_bmp.o
@@ -655,8 +655,8 @@ Discarded input sections
  .debug_macro   0x00000000    0x1426d ./SX100LIB/Src/adc.o
  .debug_macro   0x00000000       0x6d ./SX100LIB/Src/adc.o
  .debug_macro   0x00000000       0x22 ./SX100LIB/Src/adc.o
- .debug_line    0x00000000      0x78a ./SX100LIB/Src/adc.o
- .debug_str     0x00000000    0x7e540 ./SX100LIB/Src/adc.o
+ .debug_line    0x00000000      0x77e ./SX100LIB/Src/adc.o
+ .debug_str     0x00000000    0x7e53a ./SX100LIB/Src/adc.o
  .comment       0x00000000       0x44 ./SX100LIB/Src/adc.o
  .debug_frame   0x00000000       0xc8 ./SX100LIB/Src/adc.o
  .ARM.attributes
@@ -771,8 +771,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./SX100LIB/Src/adc78h90.o
  .debug_macro   0x00000000       0x3c ./SX100LIB/Src/adc78h90.o
  .debug_macro   0x00000000       0x20 ./SX100LIB/Src/adc78h90.o
- .debug_line    0x00000000      0x91e ./SX100LIB/Src/adc78h90.o
- .debug_str     0x00000000    0x82196 ./SX100LIB/Src/adc78h90.o
+ .debug_line    0x00000000      0x912 ./SX100LIB/Src/adc78h90.o
+ .debug_str     0x00000000    0x82190 ./SX100LIB/Src/adc78h90.o
  .comment       0x00000000       0x44 ./SX100LIB/Src/adc78h90.o
  .debug_frame   0x00000000       0xa4 ./SX100LIB/Src/adc78h90.o
  .ARM.attributes
@@ -925,8 +925,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./SX100LIB/Src/debug.o
  .debug_macro   0x00000000       0x3a ./SX100LIB/Src/debug.o
  .debug_macro   0x00000000      0x19d ./SX100LIB/Src/debug.o
- .debug_line    0x00000000      0x5d8 ./SX100LIB/Src/debug.o
- .debug_str     0x00000000    0x7e9aa ./SX100LIB/Src/debug.o
+ .debug_line    0x00000000      0x5cc ./SX100LIB/Src/debug.o
+ .debug_str     0x00000000    0x7e9a4 ./SX100LIB/Src/debug.o
  .comment       0x00000000       0x44 ./SX100LIB/Src/debug.o
  .debug_frame   0x00000000       0x48 ./SX100LIB/Src/debug.o
  .ARM.attributes
@@ -1040,8 +1040,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./SX100LIB/Src/eeprom.o
  .debug_macro   0x00000000       0x3a ./SX100LIB/Src/eeprom.o
  .debug_macro   0x00000000      0x19d ./SX100LIB/Src/eeprom.o
- .debug_line    0x00000000      0x706 ./SX100LIB/Src/eeprom.o
- .debug_str     0x00000000    0x7ebbc ./SX100LIB/Src/eeprom.o
+ .debug_line    0x00000000      0x6fa ./SX100LIB/Src/eeprom.o
+ .debug_str     0x00000000    0x7ebb6 ./SX100LIB/Src/eeprom.o
  .comment       0x00000000       0x44 ./SX100LIB/Src/eeprom.o
  .debug_frame   0x00000000      0x130 ./SX100LIB/Src/eeprom.o
  .ARM.attributes
@@ -1067,7 +1067,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x11 ./SX100LIB/Src/fonts.o
  .debug_macro   0x00000000      0xade ./SX100LIB/Src/fonts.o
  .debug_line    0x00000000       0x52 ./SX100LIB/Src/fonts.o
- .debug_str     0x00000000     0x2eed ./SX100LIB/Src/fonts.o
+ .debug_str     0x00000000     0x2ee7 ./SX100LIB/Src/fonts.o
  .comment       0x00000000       0x44 ./SX100LIB/Src/fonts.o
  .ARM.attributes
                 0x00000000       0x34 ./SX100LIB/Src/fonts.o
@@ -1293,8 +1293,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x146 ./SX100LIB/Src/gnss.o
  .debug_macro   0x00000000       0x16 ./SX100LIB/Src/gnss.o
  .debug_macro   0x00000000       0x22 ./SX100LIB/Src/gnss.o
- .debug_line    0x00000000      0xae4 ./SX100LIB/Src/gnss.o
- .debug_str     0x00000000    0x82d8c ./SX100LIB/Src/gnss.o
+ .debug_line    0x00000000      0xad8 ./SX100LIB/Src/gnss.o
+ .debug_str     0x00000000    0x82d86 ./SX100LIB/Src/gnss.o
  .comment       0x00000000       0x44 ./SX100LIB/Src/gnss.o
  .debug_frame   0x00000000      0x178 ./SX100LIB/Src/gnss.o
  .ARM.attributes
@@ -1606,7 +1606,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./SX100LIB/Src/pid.o
  .debug_macro   0x00000000       0x29 ./SX100LIB/Src/pid.o
  .debug_line    0x00000000      0x903 ./SX100LIB/Src/pid.o
- .debug_str     0x00000000     0x75c8 ./SX100LIB/Src/pid.o
+ .debug_str     0x00000000     0x75c2 ./SX100LIB/Src/pid.o
  .comment       0x00000000       0x44 ./SX100LIB/Src/pid.o
  .debug_frame   0x00000000       0x9c ./SX100LIB/Src/pid.o
  .ARM.attributes
@@ -2089,7 +2089,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./SX100LIB/Src/utils.o
  .debug_macro   0x00000000      0x1df ./SX100LIB/Src/utils.o
  .debug_line    0x00000000      0x51c ./SX100LIB/Src/utils.o
- .debug_str     0x00000000     0x3e43 ./SX100LIB/Src/utils.o
+ .debug_str     0x00000000     0x3e3d ./SX100LIB/Src/utils.o
  .comment       0x00000000       0x44 ./SX100LIB/Src/utils.o
  .debug_frame   0x00000000       0x7c ./SX100LIB/Src/utils.o
  .ARM.attributes
@@ -2317,7 +2317,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Src/syscalls.o
  .debug_macro   0x00000000       0xce ./Src/syscalls.o
  .debug_line    0x00000000      0x8ac ./Src/syscalls.o
- .debug_str     0x00000000     0x9949 ./Src/syscalls.o
+ .debug_str     0x00000000     0x9943 ./Src/syscalls.o
  .comment       0x00000000       0x44 ./Src/syscalls.o
  .debug_frame   0x00000000      0x288 ./Src/syscalls.o
  .ARM.attributes
@@ -2382,7 +2382,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Src/sysmem.o
  .debug_macro   0x00000000      0x1df ./Src/sysmem.o
  .debug_line    0x00000000      0x588 ./Src/sysmem.o
- .debug_str     0x00000000     0x76f3 ./Src/sysmem.o
+ .debug_str     0x00000000     0x76ed ./Src/sysmem.o
  .comment       0x00000000       0x44 ./Src/sysmem.o
  .debug_frame   0x00000000       0x34 ./Src/sysmem.o
  .ARM.attributes
@@ -3811,50 +3811,50 @@ LOAD C:/ST/STM32CubeIDE_2.2.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_macro   0x00001be8       0x3a ./Src/main.o
  .debug_macro   0x00001c22       0xa0 ./Src/main.o
 
-.debug_line     0x00000000     0xa380
- .debug_line    0x00000000      0x6dc ./SX100LIB/Src/ads8688a.o
- .debug_line    0x000006dc      0xa49 ./SX100LIB/Src/can.o
- .debug_line    0x00001125      0x8ec ./SX100LIB/Src/dma.o
- .debug_line    0x00001a11      0xb26 ./SX100LIB/Src/glcd.o
- .debug_line    0x00002537      0x476 ./SX100LIB/Src/global.o
- .debug_line    0x000029ad      0x7f7 ./SX100LIB/Src/gpio.o
- .debug_line    0x000031a4      0x741 ./SX100LIB/Src/ina239.o
- .debug_line    0x000038e5      0x6b3 ./SX100LIB/Src/indicators.o
- .debug_line    0x00003f98      0x7eb ./SX100LIB/Src/keyboard.o
- .debug_line    0x00004783      0x8e2 ./SX100LIB/Src/lcd.o
- .debug_line    0x00005065      0x606 ./SX100LIB/Src/rcc.o
- .debug_line    0x0000566b      0x8be ./SX100LIB/Src/scheduler.o
- .debug_line    0x00005f29      0x81f ./SX100LIB/Src/spi.o
- .debug_line    0x00006748      0xae0 ./SX100LIB/Src/sx100board.o
- .debug_line    0x00007228      0xc8b ./SX100LIB/Src/system_sx100.o
- .debug_line    0x00007eb3      0x6dc ./SX100LIB/Src/systick.o
- .debug_line    0x0000858f      0xc62 ./SX100LIB/Src/tim.o
- .debug_line    0x000091f1      0x97e ./SX100LIB/Src/uart.o
- .debug_line    0x00009b6f      0x796 ./Src/main.o
- .debug_line    0x0000a305       0x7b ./Startup/startup_stm32f405vgtx.o
+.debug_line     0x00000000     0xa2a8
+ .debug_line    0x00000000      0x6d0 ./SX100LIB/Src/ads8688a.o
+ .debug_line    0x000006d0      0xa3d ./SX100LIB/Src/can.o
+ .debug_line    0x0000110d      0x8e0 ./SX100LIB/Src/dma.o
+ .debug_line    0x000019ed      0xb1a ./SX100LIB/Src/glcd.o
+ .debug_line    0x00002507      0x476 ./SX100LIB/Src/global.o
+ .debug_line    0x0000297d      0x7eb ./SX100LIB/Src/gpio.o
+ .debug_line    0x00003168      0x735 ./SX100LIB/Src/ina239.o
+ .debug_line    0x0000389d      0x6a7 ./SX100LIB/Src/indicators.o
+ .debug_line    0x00003f44      0x7df ./SX100LIB/Src/keyboard.o
+ .debug_line    0x00004723      0x8d6 ./SX100LIB/Src/lcd.o
+ .debug_line    0x00004ff9      0x5fa ./SX100LIB/Src/rcc.o
+ .debug_line    0x000055f3      0x8b2 ./SX100LIB/Src/scheduler.o
+ .debug_line    0x00005ea5      0x813 ./SX100LIB/Src/spi.o
+ .debug_line    0x000066b8      0xad4 ./SX100LIB/Src/sx100board.o
+ .debug_line    0x0000718c      0xc7f ./SX100LIB/Src/system_sx100.o
+ .debug_line    0x00007e0b      0x6d0 ./SX100LIB/Src/systick.o
+ .debug_line    0x000084db      0xc56 ./SX100LIB/Src/tim.o
+ .debug_line    0x00009131      0x972 ./SX100LIB/Src/uart.o
+ .debug_line    0x00009aa3      0x78a ./Src/main.o
+ .debug_line    0x0000a22d       0x7b ./Startup/startup_stm32f405vgtx.o
 
-.debug_str      0x00000000    0x85577
- .debug_str     0x00000000    0x85577 ./SX100LIB/Src/ads8688a.o
-                              0x7ed41 (size before relaxing)
- .debug_str     0x00085577    0x7ec8c ./SX100LIB/Src/can.o
- .debug_str     0x00085577    0x7e4be ./SX100LIB/Src/dma.o
- .debug_str     0x00085577    0x7ef78 ./SX100LIB/Src/glcd.o
- .debug_str     0x00085577     0x3e57 ./SX100LIB/Src/global.o
- .debug_str     0x00085577    0x7e40c ./SX100LIB/Src/gpio.o
- .debug_str     0x00085577    0x7ed6a ./SX100LIB/Src/ina239.o
- .debug_str     0x00085577    0x7ed30 ./SX100LIB/Src/indicators.o
- .debug_str     0x00085577    0x7ef65 ./SX100LIB/Src/keyboard.o
- .debug_str     0x00085577    0x7ee3e ./SX100LIB/Src/lcd.o
- .debug_str     0x00085577    0x7e33f ./SX100LIB/Src/rcc.o
- .debug_str     0x00085577    0x81e5e ./SX100LIB/Src/scheduler.o
- .debug_str     0x00085577    0x7e415 ./SX100LIB/Src/spi.o
- .debug_str     0x00085577    0x7f4e9 ./SX100LIB/Src/sx100board.o
- .debug_str     0x00085577    0x80169 ./SX100LIB/Src/system_sx100.o
- .debug_str     0x00085577    0x7f043 ./SX100LIB/Src/systick.o
- .debug_str     0x00085577    0x7e690 ./SX100LIB/Src/tim.o
- .debug_str     0x00085577    0x82002 ./SX100LIB/Src/uart.o
- .debug_str     0x00085577    0x82eaf ./Src/main.o
- .debug_str     0x00085577       0x6a ./Startup/startup_stm32f405vgtx.o
+.debug_str      0x00000000    0x8559c
+ .debug_str     0x00000000    0x8559c ./SX100LIB/Src/ads8688a.o
+                              0x7ed3b (size before relaxing)
+ .debug_str     0x0008559c    0x7ec86 ./SX100LIB/Src/can.o
+ .debug_str     0x0008559c    0x7e4b8 ./SX100LIB/Src/dma.o
+ .debug_str     0x0008559c    0x7ef72 ./SX100LIB/Src/glcd.o
+ .debug_str     0x0008559c     0x3e51 ./SX100LIB/Src/global.o
+ .debug_str     0x0008559c    0x7e406 ./SX100LIB/Src/gpio.o
+ .debug_str     0x0008559c    0x7ed64 ./SX100LIB/Src/ina239.o
+ .debug_str     0x0008559c    0x7ed2a ./SX100LIB/Src/indicators.o
+ .debug_str     0x0008559c    0x7ef5f ./SX100LIB/Src/keyboard.o
+ .debug_str     0x0008559c    0x7ee38 ./SX100LIB/Src/lcd.o
+ .debug_str     0x0008559c    0x7e339 ./SX100LIB/Src/rcc.o
+ .debug_str     0x0008559c    0x81e58 ./SX100LIB/Src/scheduler.o
+ .debug_str     0x0008559c    0x7e40f ./SX100LIB/Src/spi.o
+ .debug_str     0x0008559c    0x7f4e3 ./SX100LIB/Src/sx100board.o
+ .debug_str     0x0008559c    0x80163 ./SX100LIB/Src/system_sx100.o
+ .debug_str     0x0008559c    0x7f03d ./SX100LIB/Src/systick.o
+ .debug_str     0x0008559c    0x7e68a ./SX100LIB/Src/tim.o
+ .debug_str     0x0008559c    0x81ffc ./SX100LIB/Src/uart.o
+ .debug_str     0x0008559c    0x82ea9 ./Src/main.o
+ .debug_str     0x0008559c       0x6a ./Startup/startup_stm32f405vgtx.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./SX100LIB/Src/ads8688a.o

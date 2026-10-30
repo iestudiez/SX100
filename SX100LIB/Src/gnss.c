@@ -45,7 +45,7 @@ GnssStatus_t GNSS_Status;
 
 // Private variables
 // -----------------------------------------------------------------------------
-char GNSS_Frame[UART_RX_BUFFER_SIZE];
+char GNSS_Frame[UART2_RX_BUFFER_SIZE];
 char gnss_Buffer[RMC_STR_BUFFER_SIZE];
 
 // Private functions
@@ -142,7 +142,7 @@ void GNSS_FrameBuilder(void)
 	uint8_t nReceivedChars;
 
 // Set position pointer
-	pos = UART_RX_BUFFER_SIZE - DMA1_Stream5->NDTR;
+	pos = UART2_RX_BUFFER_SIZE - DMA1_Stream5->NDTR;
 
 	if (pos > oldPos)
 	{
@@ -166,7 +166,7 @@ void GNSS_FrameBuilder(void)
 		nReceivedChars = pos - oldPos;
 
 		for (i = 0; i < nReceivedChars; i++)
-			GNSS_Frame[i] = UART_RxBuffer[oldPos + i];
+			GNSS_Frame[i] = UART2_RxBuffer[oldPos + i];
 	}
 	else
 	{
@@ -187,15 +187,15 @@ void GNSS_FrameBuilder(void)
 		 * [ N - 1 ]            |---------------------------------|
 		 */
 
-		nReceivedChars = UART_RX_BUFFER_SIZE - oldPos;
+		nReceivedChars = UART2_RX_BUFFER_SIZE - oldPos;
 
 		// First block
 		for (i = 0; i < nReceivedChars; i++)
-			GNSS_Frame[i] = UART_RxBuffer[oldPos + i];
+			GNSS_Frame[i] = UART2_RxBuffer[oldPos + i];
 
 		// Second block
 		for (i = 0; i < pos; i++)
-			GNSS_Frame[i + nReceivedChars] = UART_RxBuffer[i];
+			GNSS_Frame[i + nReceivedChars] = UART2_RxBuffer[i];
 	}
 	oldPos = pos;
 }
@@ -304,8 +304,8 @@ void GNSS_RmcParser(void)
  */
 void GNSS_SendCommand(char *msg)
 {
-	sprintf(UART_TxBuffer, msg);
-	DMA1_Stream6->NDTR = strlen(UART_TxBuffer);
+	sprintf(UART2_TxBuffer, msg);
+	DMA1_Stream6->NDTR = strlen(UART2_TxBuffer);
 	DMA_Stream_Enable(DMA1_Stream6);
 
 	// Wait for DMA1_Stream6 transmission complete
@@ -402,7 +402,7 @@ uint8_t findTokenIdx(uint8_t tokenPos)
 	uint8_t idx = 0;
 	uint8_t cnt = 0;
 
-	while ((cnt < tokenPos) && (idx < UART_RX_BUFFER_SIZE))
+	while ((cnt < tokenPos) && (idx < UART2_RX_BUFFER_SIZE))
 	{
 		if (GNSS_Frame[idx] == ',')
 			cnt++;

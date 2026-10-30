@@ -2987,3 +2987,143 @@ COM13
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-29 16:01:05.036
 !MESSAGE port: 
+!SESSION 2026-10-30 07:14:11.580 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-10-30 07:14:21.074
+!MESSAGE Log4j2 initialized with config file C:\Src\STM32\SX100_SRC\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-10-30 07:14:35.571
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-30 07:14:37.999
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-30 07:14:38.000
+!MESSAGE port: 
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-30 07:17:53.685
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM13
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-30 07:17:53.687
+!MESSAGE port: COM13
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-10-30 07:37:05.491
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-10-30 07:38:26.108
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-10-30 08:19:00.119
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY org.eclipse.core.resources 4 368 2026-10-30 09:30:00.914
+!MESSAGE Resource '/TESTING' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/TESTING' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:376)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:248)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:189)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:593)
+	at org.eclipse.core.internal.resources.Project.getNature(Project.java:462)
+	at com.st.stm32cube.ide.mcu.projectnatures.properties.PropertyTester.isMcuProject(PropertyTester.java:46)
+	at com.st.stm32cube.ide.mcu.projectnatures.properties.PropertyTester.test(PropertyTester.java:31)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:65)
+	at org.eclipse.core.expressions.TestExpression.evaluate(TestExpression.java:109)
+	at org.eclipse.core.internal.expressions.NotExpression.evaluate(NotExpression.java:39)
+	at org.eclipse.core.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:57)
+	at org.eclipse.core.internal.expressions.IterateExpression.evaluate(IterateExpression.java:207)
+	at org.eclipse.core.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:57)
+	at org.eclipse.core.expressions.WithExpression.evaluate(WithExpression.java:84)
+	at org.eclipse.ui.internal.services.EvaluationReference.evaluate(EvaluationReference.java:76)
+	at org.eclipse.ui.internal.activities.MutableActivityManager.updateActivity(MutableActivityManager.java:664)
+	at org.eclipse.ui.internal.activities.MutableActivityManager.updateActivities(MutableActivityManager.java:599)
+	at org.eclipse.ui.internal.activities.MutableActivityManager.updateExpressionEnabledActivities(MutableActivityManager.java:568)
+	at org.eclipse.ui.internal.activities.MutableActivityManager.removeExpressionEnabledActivity(MutableActivityManager.java:562)
+	at org.eclipse.ui.internal.activities.MutableActivityManager.lambda$1(MutableActivityManager.java:623)
+	at org.eclipse.ui.internal.services.EvaluationReference.evaluate(EvaluationReference.java:116)
+	at org.eclipse.ui.internal.services.EvaluationReference.changed(EvaluationReference.java:100)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:109)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.processScheduled(EclipseContext.java:371)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.set(EclipseContext.java:387)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.deactivate(EclipseContext.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerHideProcessor.lambda$1(MenuManagerHideProcessor.java:140)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4137)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3753)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1147)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+!SESSION 2026-10-30 11:55:13.800 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-10-30 11:55:22.715
+!MESSAGE Log4j2 initialized with config file C:\Src\STM32\SX100_SRC\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-10-30 11:55:36.655
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-30 11:55:38.982
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM13
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-30 11:55:38.983
+!MESSAGE port: COM13
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-10-30 13:02:00.098
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-10-30 13:09:34.818
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-10-30 14:21:27.104
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-10-30 14:45:05.007
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-30 15:13:48.100
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-30 15:13:48.101
+!MESSAGE port: 
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-30 15:13:50.600
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM13
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-10-30 15:13:50.600
+!MESSAGE port: COM13

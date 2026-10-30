@@ -24,6 +24,7 @@
 #include "rcc.h"
 #include "keyboard.h"
 
+
 // Definitions
 // ----------------------------------------------------------------------------
 
@@ -44,6 +45,7 @@ void SYSTEM_Init()
 	// * RCC Configuration		                                    		  *
 	// ************************************************************************
 	RCC_SystemClockConfig();
+	SYSTEM_RandomGeneratorInit();
 
 	// ************************************************************************
 	// * FPU Section			                                    		  *
@@ -452,6 +454,46 @@ void SYSTEM_Init()
 	// -------------
 	UART_Enable(USART1);
 
+	// ------------------------------------------------------------------------
+	// DMA for USART1
+	// ------------------------------------------------------------------------
+
+	// Configure DMA2 Stream2 - Channel 4 (RX)
+	// ---------------------------------------
+	DMA_Config_Reset(&dmaConf);
+	dmaConf.stream = DMA2_Stream2;
+	dmaConf.ch = 4;
+	dmaConf.par = (uint32_t) (&(USART1->DR));
+	dmaConf.m0ar = (uint32_t) &UART1_RxBuffer;
+	dmaConf.msize = MSIZE_BYTE;
+	dmaConf.dir = PERIPH_TO_MEM;
+	dmaConf.ndtr = UART1_RX_BUFFER_SIZE;
+	dmaConf.minc = true;
+	dmaConf.circ = true;
+	dmaConf.tcie = false;
+	DMA_Init(dmaConf);
+
+//	// Enable DMA2_Stream2
+//	DMA_Stream_Enable(DMA2_Stream2);
+
+	// Configure DMA2 Stream7 - Channel 4 (TX)
+	// ---------------------------------------
+	DMA_Config_Reset(&dmaConf);
+	dmaConf.stream = DMA2_Stream7;
+	dmaConf.ch = 4;
+	dmaConf.par = (uint32_t) (&(USART1->DR));
+	dmaConf.m0ar = (uint32_t) &UART1_TxBuffer;
+	dmaConf.msize = MSIZE_BYTE;
+	dmaConf.dir = MEM_TO_PERIPH;
+	dmaConf.ndtr = UART1_TX_BUFFER_SIZE;
+	dmaConf.minc = true;
+	dmaConf.circ = false;
+	dmaConf.tcie = false;
+	DMA_Init(dmaConf);
+
+//	// Enable DMA2_Stream7
+//	DMA_Stream_Enable(DMA2_Stream7);
+
 	// ************************************************************************
 	// * UART2 Initialization                                                 *
 	// ************************************************************************
@@ -504,10 +546,10 @@ void SYSTEM_Init()
 	dmaConf.stream = DMA1_Stream5;
 	dmaConf.ch = 4;
 	dmaConf.par = (uint32_t) (&(USART2->DR));
-	dmaConf.m0ar = (uint32_t) &UART_RxBuffer;
+	dmaConf.m0ar = (uint32_t) &UART2_RxBuffer;
 	dmaConf.msize = MSIZE_BYTE;
 	dmaConf.dir = PERIPH_TO_MEM;
-	dmaConf.ndtr = UART_RX_BUFFER_SIZE;
+	dmaConf.ndtr = UART2_RX_BUFFER_SIZE;
 	dmaConf.minc = true;
 	dmaConf.circ = true;
 	dmaConf.tcie = false;
@@ -522,10 +564,10 @@ void SYSTEM_Init()
 	dmaConf.stream = DMA1_Stream6;
 	dmaConf.ch = 4;
 	dmaConf.par = (uint32_t) (&(USART2->DR));
-	dmaConf.m0ar = (uint32_t) &UART_TxBuffer;
+	dmaConf.m0ar = (uint32_t) &UART2_TxBuffer;
 	dmaConf.msize = MSIZE_BYTE;
 	dmaConf.dir = MEM_TO_PERIPH;
-	dmaConf.ndtr = UART_TX_BUFFER_SIZE;
+	dmaConf.ndtr = UART2_TX_BUFFER_SIZE;
 	dmaConf.minc = true;
 	dmaConf.circ = false;
 	dmaConf.tcie = false;
@@ -869,8 +911,7 @@ void SYSTEM_DelayUs(uint16_t delay)
 
 	TIM_Enable(SYSTEM_DELAY_TIMER);
 
-	while (!(SYSTEM_DELAY_TIMER->SR & TIM_SR_UIF))
-		;
+	while (!(SYSTEM_DELAY_TIMER->SR & TIM_SR_UIF));
 
 	TIM_Disable(SYSTEM_DELAY_TIMER);
 }
@@ -962,7 +1003,7 @@ void SYSTEM_FreqInConfig(DigitalInput_e din, DinMode_e mode)
 	}
 
 	// Configuration is complete here if it is a digital input.
-	if(mode == SYSTEM_DIN_INPUT_MODE)
+	if (mode == SYSTEM_DIN_INPUT_MODE)
 		return;
 
 	// GPIO configuration (Alternate Function Input Capture)
@@ -1002,4 +1043,18 @@ void SYSTEM_FreqInConfig(DigitalInput_e din, DinMode_e mode)
 
 	// Generate an update event
 	timerConf.module->EGR |= TIM_EGR_UG;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief 		Random Number Generator Initializer
+ * -----------------------------------------------------------------------------
+ */
+void SYSTEM_RandomGeneratorInit(void)
+{
+	// Enable clock access for RNG
+	RCC->AHB2ENR |= RCC_AHB2ENR_RNGEN;
+
+	// Enable RNG
+	RNG->CR |= RNG_CR_RNGEN;
 }

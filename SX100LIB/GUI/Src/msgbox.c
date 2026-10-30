@@ -4,7 +4,7 @@
  * @author      : Ivan.Estudiez
  * @brief       : Message box graphical control
  * @date        : 14 may 2026
- * @version     : 0.
+ * @version     : 1.0
  ******************************************************************************
  */
 

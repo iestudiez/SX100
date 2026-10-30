@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;FTX100/SX100LIB/GUI/Src/passbox.c&apos; to &apos;accessbox.c&apos;" description="Rename resource &apos;passbox.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="SX100LIB/GUI/Src/passbox.c" name="accessbox.c" stamp="1793384185854" updateReferences="true"/>
+</session>

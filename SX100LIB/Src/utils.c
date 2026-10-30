@@ -9,6 +9,7 @@
  */
 
 #include "utils.h"
+#include <stm32f4xx.h>
 
 /**
  * ----------------------------------------------------------------------------
@@ -22,7 +23,7 @@
  * @return				Output value
  * ----------------------------------------------------------------------------
  */
-int32_t lintrafo(int32_t x, int32_t inMin, int32_t inMax, int32_t outMin, int32_t outMax)
+int32_t linTrafo(int32_t x, int32_t inMin, int32_t inMax, int32_t outMin, int32_t outMax)
 {
 	int32_t slope = (inMax - inMin);
 
@@ -48,7 +49,7 @@ int32_t lintrafo(int32_t x, int32_t inMin, int32_t inMax, int32_t outMin, int32_
  * @param alpha		Range (0 - 1000)
  * -----------------------------------------------------------------------------
  */
-void emafilter(int32_t input, int32_t *output, uint16_t alpha)
+void emaFilter(int32_t input, int32_t *output, uint16_t alpha)
 {
 	// Check maximum alpha value
 	if (alpha > 1000)
@@ -92,4 +93,17 @@ void quickSort(uint16_t *arr, const int16_t left, const int16_t right)
 		quickSort(arr, left, j);
 	if (i < right)
 		quickSort(arr, i, right);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief	Generates a random number
+ * -----------------------------------------------------------------------------
+ * @return	32-bits Random number
+ * -----------------------------------------------------------------------------
+ */
+uint32_t genRandom(void)
+{
+	while ((RNG->SR & RNG_SR_DRDY) == 0);
+	return RNG->DR;
 }

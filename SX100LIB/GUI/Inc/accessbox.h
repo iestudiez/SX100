@@ -1,0 +1,41 @@
+/**
+ ******************************************************************************
+ * @file        : accessbox.h
+ * @author      : Ivan.Estudiez
+ * @brief       : Access box graphical control
+ * @date        : 30/10/2026
+ * @version     : 1.0
+ ******************************************************************************
+ */
+
+#ifndef GUI_INC_ACCESSBOX_H_
+#define GUI_INC_ACCESSBOX_H_
+
+#include "stdbool.h"
+#include "stdint.h"
+
+// Type definitions
+// ----------------------------------------------------------------------------
+
+typedef struct AccessBoxPrivateSettings_t
+{
+	uint8_t status;
+	bool init;
+	bool redraw;
+	bool singleLine;
+	uint8_t txt1Center;
+	uint8_t txt2Center;
+} AccessBoxPrivateSettings_t;
+
+typedef struct GUI_AccessBox_t
+{
+	AccessBoxPrivateSettings_t priv;
+	bool *pValue;
+	char *sTitle;
+	char *sMsgLine1;
+	char *sMsgLine2;
+	void *pRet;
+} GUI_AccessBox_t;
+
+
+#endif /* GUI_INC_ACCESSBOX_H_ */

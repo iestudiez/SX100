@@ -1,0 +1,109 @@
+/**
+ ******************************************************************************
+ * @file        : utils.c
+ * @author      : Ivan.Estudiez
+ * @brief       : Library of miscellaneous utilities
+ * @date        : 6 jul 2026
+ * @version     : 0.1
+ ******************************************************************************
+ */
+
+#include "utils.h"
+#include <stm32f4xx.h>
+
+/**
+ * ----------------------------------------------------------------------------
+ * @brief 				Transform a number from one numeric range to another
+ * ----------------------------------------------------------------------------
+ * @param x				Input value
+ * @param inMin			Minimum input value
+ * @param inMax			Maximum input value
+ * @param outMin		Minimum output value
+ * @param outMax		Maximum output value
+ * @return				Output value
+ * ----------------------------------------------------------------------------
+ */
+int32_t linTrafo(int32_t x, int32_t inMin, int32_t inMax, int32_t outMin, int32_t outMax)
+{
+	int32_t slope = (inMax - inMin);
+
+	if (slope == 0)
+		return 0;
+
+	// Check input value limits
+	if (x < inMin)
+		x = inMin;
+	if (x > inMax)
+		x = inMax;
+
+	return ((x - inMin) * (outMax - outMin) / slope) + outMin;
+
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief 			Exponential moving average filter
+ * -----------------------------------------------------------------------------
+ * @param input		Input value
+ * @param output	Filtered value
+ * @param alpha		Range (0 - 1000)
+ * -----------------------------------------------------------------------------
+ */
+void emaFilter(int32_t input, int32_t *output, uint16_t alpha)
+{
+	// Check maximum alpha value
+	if (alpha > 1000)
+		alpha = 1000;
+
+	*output = (alpha * input + (1000 - alpha) * (*output)) / 1000;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief 			Ascending quick-sort algorithm
+ * -----------------------------------------------------------------------------
+ * @param arr
+ * @param left
+ * @param right
+ * -----------------------------------------------------------------------------
+ */
+void quickSort(uint16_t *arr, const int16_t left, const int16_t right)
+{
+	int16_t i = left, j = right;
+	uint16_t tmp;
+
+	uint16_t pivot = arr[(left + right) / 2];
+	while (i <= j)
+	{
+		while (arr[i] < pivot)
+			i++;
+		while (arr[j] > pivot)
+			j--;
+		if (i <= j)
+		{
+			tmp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = tmp;
+			i++;
+			j--;
+		}
+	}
+
+	if (left < j)
+		quickSort(arr, left, j);
+	if (i < right)
+		quickSort(arr, i, right);
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * @brief
+ * -----------------------------------------------------------------------------
+ * @return
+ * -----------------------------------------------------------------------------
+ */
+uint32_t randomNumber(void)
+{
+	while ((RNG->SR & RNG_SR_DRDY) == 0);
+	return RNG->DR;
+}

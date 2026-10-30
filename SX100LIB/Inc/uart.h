@@ -25,9 +25,15 @@
 
 // Public definitions
 // ----------------------------------------------------------------------------
-#define UART_DEFAULT_MODULE			USART1
-#define UART_RX_BUFFER_SIZE			100
-#define UART_TX_BUFFER_SIZE			80
+#define UART1_RX_BUFFER_SIZE			80
+#define UART1_TX_BUFFER_SIZE			100
+#define UART2_RX_BUFFER_SIZE			100
+#define UART2_TX_BUFFER_SIZE			80
+
+// Redirect standard output
+// ----------------------------------------------------------------------------
+#define UART_DEFAULT_MODULE				USART1
+int __io_putchar(int ch);
 
 // Baudrate enumeration
 typedef enum
@@ -56,10 +62,17 @@ typedef struct uart_s
 	bool idleie;
 } UART_Config_t;
 
-extern char UART_RxBuffer[UART_RX_BUFFER_SIZE];
-extern char UART_TxBuffer[UART_TX_BUFFER_SIZE];
+// ----------------------------------------------------------------------------
+// Public variables
+// ----------------------------------------------------------------------------
+extern char UART1_RxBuffer[UART1_RX_BUFFER_SIZE];
+extern char UART1_TxBuffer[UART1_TX_BUFFER_SIZE];
+extern char UART2_RxBuffer[UART2_RX_BUFFER_SIZE];
+extern char UART2_TxBuffer[UART2_TX_BUFFER_SIZE];
 
-int __io_putchar(int ch);
+// ----------------------------------------------------------------------------
+// Public functions
+// ----------------------------------------------------------------------------
 void UART_Init(UART_Config_t uart);
 void UART_Enable(USART_TypeDef *uart);
 void UART_Disable(USART_TypeDef *uart);

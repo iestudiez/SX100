@@ -199,9 +199,11 @@ void RCC_SystemClockConfig(void)
 
 	// HSE = 8MHz
 	// SYSCLK = 8MHz -> /4 -> x168 -> /2 = 168MHz
+	// RNG Clock = 8MHz -> /4 -> x168 -> /7 = 48MHz
 	RCC->PLLCFGR |= (4U << RCC_PLLCFGR_PLLM_Pos);		// PLLM = 4
 	RCC->PLLCFGR |= (168U << RCC_PLLCFGR_PLLN_Pos); 	// PLLN = 168
 	RCC->PLLCFGR |= (0U << RCC_PLLCFGR_PLLP_Pos); 		// PLLP = 2
+	RCC->PLLCFGR |= (7U << RCC_PLLCFGR_PLLQ_Pos);		// PLLQ = 7 (For random number generator)
 
 	// 5. Configure the PRESCALARS HCLK, PCLK1, PCLK2
 	// ----------------------------------------------

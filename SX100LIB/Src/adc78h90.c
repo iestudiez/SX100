@@ -179,11 +179,11 @@ void ADC78H90_AverageChannels(void)
 	// ---------------------------------------------------------------------
 	memcpy(ADC_SortBuffer, &ADC_AinBuffer[0][0], ADC78H90_AIN_N_SAMPL * sizeof(uint16_t));
 	quickSort(ADC_SortBuffer, 0, ADC78H90_AIN_N_SAMPL - 1);
-	emafilter(ADC_SortBuffer[ADC78H90_AIN_N_SAMPL / 2 - 1], &sample_CH0, ADC_EMA_FILTER_ALPHA);
+	emaFilter(ADC_SortBuffer[ADC78H90_AIN_N_SAMPL / 2 - 1], &sample_CH0, ADC_EMA_FILTER_ALPHA);
 	ADC_AvgCh[ADC78H90_ISEN_N_CH] = (uint16_t) sample_CH0;
 
 	memcpy(ADC_SortBuffer, &ADC_AinBuffer[1][0], ADC78H90_AIN_N_SAMPL * sizeof(uint16_t));
 	quickSort(ADC_SortBuffer, 0, ADC78H90_AIN_N_SAMPL - 1);
-	emafilter(ADC_SortBuffer[ADC78H90_AIN_N_SAMPL / 2 - 1], &sample_CH1, ADC_EMA_FILTER_ALPHA);
+	emaFilter(ADC_SortBuffer[ADC78H90_AIN_N_SAMPL / 2 - 1], &sample_CH1, ADC_EMA_FILTER_ALPHA);
 	ADC_AvgCh[ADC78H90_ISEN_N_CH + 1] = (uint16_t) sample_CH1;
 }
